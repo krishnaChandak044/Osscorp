@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: 1200,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
