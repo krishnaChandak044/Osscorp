@@ -261,20 +261,20 @@ const brands = [
 const servicePhotos: Record<string, { file: string; caption: string }[]> = {
     offshore: [
         "offshore_ser_2|Offshore platforms",
-        "offshore_ser_4|Technical installation & maintenance",
+        "offshore_ser_india_2|Indian offshore platform and support vessel",
         "offshore_ser_3|Marine surveillance systems",
-        "offshore_ser_1|Marine operations",
+        "offshore_ser_india_4|Indian offshore field installation team",
         "offshore_ser_5|Offshore infrastructure",
     ].map((item) => {
         const [file, caption] = item.split("|");
         return { file, caption };
     }),
     security: [
-        "security_sur_2|Surveillance & control rooms",
+        "security_surveillance_user_1|CCTV surveillance systems",
         "security_survi_3|CCTV infrastructure",
-        "security_survi_4|Integrated monitoring",
+        "security_surveillance_user_3|Security operations and monitoring",
         "security_survi_5|Offshore security systems",
-        "sercrity_survi_1|Security operations",
+        "security_surveillance_user_5|On-site CCTV installation",
     ].map((item) => {
         const [file, caption] = item.split("|");
         return { file, caption };
@@ -282,7 +282,7 @@ const servicePhotos: Record<string, { file: string; caption: string }[]> = {
     telecommunications: [
         "tele_ser_2|Communications infrastructure",
         "tele_ser_1|Satellite communications",
-        "tele_ser_3|Fibre installation",
+        "tele_ser_user_3|Fibre optic installation",
         "tele_ser_4|Network integration",
         "tele_ser_5|Tower infrastructure",
     ].map((item) => {
@@ -293,7 +293,7 @@ const servicePhotos: Record<string, { file: string; caption: string }[]> = {
         "solar_power_3|Offshore solar applications",
         "solar_power_1|Solar power generation",
         "solar_power_2|Industrial rooftop systems",
-        "solar_power_4|Installation & maintenance",
+        "solar_power_user_4|Solar panel installation and maintenance",
         "solar_power_5|Energy storage systems",
     ].map((item) => {
         const [file, caption] = item.split("|");
@@ -455,8 +455,9 @@ export default function Home() {
     const [hero, setHero] = useState(0);
     const [heroPaused, setHeroPaused] = useState(false);
     const [menu, setMenu] = useState(false);
-    const [inquiryReady, setInquiryReady] = useState(false);
     const [inquiryService, setInquiryService] = useState("");
+    const [inquiryState, setInquiryState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+    const [inquiryMessage, setInquiryMessage] = useState("");
     useEffect(() => {
         let frame = 0;
         const update = () => {
@@ -531,28 +532,34 @@ export default function Home() {
         });
         return () => observer.disconnect();
     }, []);
-    function prepareInquiry(event: React.FormEvent<HTMLFormElement>) {
+    async function prepareInquiry(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        const fields = new FormData(event.currentTarget);
-        const labels: [string, string][] = [
-            ["Name", "name"],
-            ["Email", "email"],
-            ["Phone", "phone"],
-            ["Company", "company"],
-            ["Service", "service"],
-            ["Project location", "location"],
-            ["Timeline", "timeline"],
-            ["Project details", "message"],
-        ];
-        const body = labels
-            .map(
-                ([label, key]) =>
-                    `${label}: ${String(fields.get(key) || "Not provided")}`,
-            )
-            .join("\n");
-        const subject = `Osscorp project enquiry — ${String(fields.get("service") || "General")}`;
-        window.location.href = `mailto:osscorp21@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        setInquiryReady(true);
+        const form = event.currentTarget;
+        const fields = new FormData(form);
+        fields.append("access_key", "872a2eac-f9dc-4ca3-8fd2-8638d5eb968d");
+        fields.append("subject", `Osscorp project enquiry — ${String(fields.get("service") || "General")}`);
+        fields.append("from_name", "OSSCORP Website");
+        setInquiryState("sending");
+        setInquiryMessage("");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: fields,
+            });
+            const result = await response.json();
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || "We couldn’t send your enquiry. Please try again.");
+            }
+
+            form.reset();
+            setInquiryService("");
+            setInquiryState("sent");
+            setInquiryMessage("Thank you. Your enquiry has been sent to OSSCORP.");
+        } catch (error) {
+            setInquiryState("error");
+            setInquiryMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+        }
     }
     return (
         <>
@@ -1275,7 +1282,16 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <form className="brief inquiry-form" onSubmit={prepareInquiry}>
+                    <form
+                        className="brief inquiry-form"
+                        onSubmit={prepareInquiry}
+                        onChange={() => {
+                            if (inquiryState !== "idle") {
+                                setInquiryState("idle");
+                                setInquiryMessage("");
+                            }
+                        }}
+                    >
                         <div className="form-heading">
                             <span>PROJECT ENQUIRY</span>
                             <small>Tell us a little about your requirements.</small>
@@ -1369,13 +1385,12 @@ export default function Home() {
                                 />
                             </label>
                         </div>
-                        <button className="button primary" type="submit">
-                            Prepare email <Arrow />
+                        <button className="button primary" type="submit" disabled={inquiryState === "sending"}>
+                            {inquiryState === "sending" ? "Sending…" : inquiryState === "sent" ? "Enquiry sent" : "Send enquiry"}
+                            {inquiryState !== "sending" && <Arrow />}
                         </button>
-                        <p className="form-note" role="status">
-                            {inquiryReady
-                                ? "Your email app should open with the enquiry ready to review. Send it when you’re happy with the details."
-                                : "This prepares an email to Osscorp. Your details are shared only if you choose to send it."}
+                        <p className="form-note" role={inquiryState === "error" ? "alert" : "status"}>
+                            {inquiryMessage || "Your enquiry will be sent securely to the OSSCORP team."}
                         </p>
                     </form>
                 </section>
@@ -1394,6 +1409,8 @@ export default function Home() {
                     <a href="#expertise">Expertise</a>
                     <a href="#leadership">Leadership</a>
                     <a href="#contact">Contact</a>
+                    <a href="/privacy-policy">Privacy policy</a>
+                    <a href="/disclaimer">Disclaimer</a>
                 </div>
                 <div className="footer-bottom">
                     <span>

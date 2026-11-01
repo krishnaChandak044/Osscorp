@@ -5485,3 +5485,170 @@ p {
     .range-head span:last-child { white-space: normal; }
     .case-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Standalone legal pages share the site's restrained editorial layout. */
+.policy-main {
+    width: min(1120px, 88%);
+    margin: 0 auto;
+    padding: clamp(76px, 10vw, 142px) 0 clamp(82px, 10vw, 150px);
+}
+
+.policy-main>.eyebrow {
+    margin-bottom: 22px;
+}
+
+.policy-main h1 {
+    max-width: 900px;
+    margin: 0;
+    font-size: clamp(48px, 7vw, 90px);
+    line-height: 1.04;
+    letter-spacing: -.065em;
+    font-weight: 500;
+}
+
+.policy-intro {
+    max-width: 690px;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.7;
+}
+
+.policy-updated {
+    margin-top: 22px;
+    color: #829098;
+    font-size: 12px;
+    letter-spacing: .04em;
+}
+
+.policy-sections {
+    margin-top: clamp(54px, 8vw, 100px);
+    border-top: 1px solid var(--line);
+}
+
+.policy-sections section {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 26px;
+    padding: 30px 0 34px;
+    border-bottom: 1px solid var(--line);
+}
+
+.policy-number {
+    padding-top: 4px;
+    color: var(--red);
+    font-size: 12px;
+    letter-spacing: .1em;
+}
+
+.policy-sections h2 {
+    margin-bottom: 12px;
+    font-size: clamp(20px, 2.4vw, 27px);
+    line-height: 1.3;
+    font-weight: 550;
+    letter-spacing: -.035em;
+}
+
+.policy-sections p {
+    max-width: 820px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.policy-page footer>div:not(.footer-bottom) {
+    flex-wrap: wrap;
+}
+
+@media (max-width: 840px) {
+    .policy-header>nav {
+        display: none;
+    }
+
+    .policy-header .nav-cta {
+        display: flex;
+        margin-left: auto;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .policy-main {
+        width: 88%;
+        padding-top: 58px;
+        padding-bottom: 72px;
+    }
+
+    .policy-main>.eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.1px;
+    }
+
+    .policy-main h1 {
+        font-size: clamp(42px, 12vw, 58px);
+    }
+
+    .policy-intro {
+        font-size: 16px;
+    }
+
+    .policy-sections section {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        padding: 23px 0 26px;
+    }
+
+    .policy-sections p {
+        font-size: 14px;
+    }
+
+    .policy-header {
+        gap: 8px;
+    }
+
+    .policy-header .brand small {
+        max-width: 138px;
+        line-height: 1.25;
+    }
+
+    .policy-header .nav-cta {
+        padding: 10px 11px;
+        gap: 8px;
+        font-size: 11px;
+    }
+}
+
+/* Final phone-width safeguards for long service and project copy. */
+@media (max-width: 600px) {
+    .section-top,
+    .service-panel,
+    .service-copy,
+    .service-visual,
+    .case-card,
+    .contact-info,
+    .inquiry-form,
+    .form-grid label {
+        min-width: 0;
+    }
+
+    .expertise-index a {
+        overflow-wrap: anywhere;
+    }
+
+    .service-copy h4,
+    .service-copy > p,
+    .case-card h3,
+    .case-card p,
+    .policy-sections p {
+        overflow-wrap: anywhere;
+    }
+
+    .case-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 14px;
+    }
+
+    .brand-marquee {
+        max-width: calc(100vw + 12vw);
+    }
+}
