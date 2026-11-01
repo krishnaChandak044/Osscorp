@@ -1201,7 +1201,7 @@ export default function Home() {
                             </div>
                             <div className="case-index-counter">
                                 <strong>{String(caseStudies.length).padStart(2, "0")}</strong>
-                                <span>DOCUMENTED PROJECTS</span>
+                                <span>SELECTED PROJECT HIGHLIGHTS</span>
                             </div>
                         </div>
                     </div>
