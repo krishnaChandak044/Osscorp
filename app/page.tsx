@@ -281,7 +281,7 @@ const servicePhotos: Record<string, { file: string; caption: string }[]> = {
     }),
     telecommunications: [
         "tele_ser_2|Communications infrastructure",
-        "tele_ser_1|Satellite communications",
+        "tele_ser_user_2|Satellite communications",
         "tele_ser_user_3|Fibre optic installation",
         "tele_ser_4|Network integration",
         "tele_ser_5|Tower infrastructure",
