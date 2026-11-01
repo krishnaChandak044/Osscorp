@@ -141,7 +141,7 @@ const caseStudies = [
         client: "Delivered for Neutron",
         scope: "Mumbai, MHN and BPA locations",
         summary:
-            "Falcon Communications established a video conferencing facility linking ONGC’s Vasundhara Bhavan in Bandra with offshore locations at Mumbai High North and Bassein and Satellite. The project was described as ONGC’s first video conferencing project in India.",
+            "A video conferencing facility connected ONGC’s Vasundhara Bhavan in Bandra with offshore teams at Mumbai High North, Bassein and Satellite. Delivered for Neutron, the project was described as ONGC’s first video conferencing initiative in India.",
         metrics: [
             { value: "1997", label: "Year awarded" },
             { value: "1998", label: "Commissioned" },
@@ -156,7 +156,7 @@ const caseStudies = [
         client: "Project partner: Amara Raja Batteries",
         scope: "Solar power for communications and data systems",
         summary:
-            "Falcon Communications executed the offshore solar project on behalf of Amara Raja Batteries across unmanned and manned ONGC platforms. The project supported communication radios and radio-based data transmission integrated with the RPMC system and SCADA.",
+            "Across 104 manned and unmanned ONGC platforms, the solar installations supported communication radios and radio-based data transmission integrated with RPMC and SCADA. Falcon Communications executed the project on behalf of Amara Raja Batteries.",
         metrics: [
             { value: "104", label: "Platforms covered" },
             { value: "97", label: "Unmanned platforms" },
@@ -171,7 +171,7 @@ const caseStudies = [
         client: "Principal contractor: ECIL",
         scope: "Perimeter security and intrusion detection",
         summary:
-            "Falcon Communications executed the project on behalf of Electronics Corporation of India Limited for BARC in Mumbai. The perimeter system was intended to strengthen boundary protection and address unauthorized access and animal intrusion concerns. It was completed within the required timeframe.",
+            "At BARC in Mumbai, an electric and vibration-fence system was designed to strengthen perimeter protection and address unauthorized access and animal intrusion concerns. With ECIL as principal contractor, Falcon Communications completed the work within the required timeframe.",
         metrics: [
             { value: "BARC", label: "End client" },
             { value: "ECIL", label: "Principal contractor" },
@@ -186,7 +186,7 @@ const caseStudies = [
         client: "Installation partner: Supreme Telecom",
         scope: "Removal, installation and commissioning",
         summary:
-            "Falcon Communications removed the existing antenna and installed and commissioned a new 8.6-metre satellite antenna on ONGC’s HEERA offshore platform, completing the assignment within the required timeframe.",
+            "On ONGC’s HEERA offshore platform, the existing antenna was removed and a new 8.6-metre satellite antenna installed and commissioned by Falcon Communications within the required timeframe.",
         metrics: [
             { value: "8.6 m", label: "Antenna size" },
             { value: "HEERA", label: "Offshore platform" },
@@ -201,7 +201,7 @@ const caseStudies = [
         client: "Nationwide deployment",
         scope: "Installation, repair and link monitoring",
         summary:
-            "Falcon Communications supported V-SAT links across India, including installation at 2,000 sites and three years of maintenance. The work included IDU and ODU repair, state-level technical support, and round-the-clock link observation.",
+            "A nationwide support programme covered V-SAT links at 2,000 sites, with three years of maintenance, IDU and ODU repairs, state-level technical support, and round-the-clock link observation provided by Falcon Communications.",
         metrics: [
             { value: "2,000", label: "Sites across India" },
             { value: "3 years", label: "Maintenance period" },
@@ -216,7 +216,7 @@ const caseStudies = [
         client: "Work orders through Technocrats",
         scope: "Multi-location installation and commissioning",
         summary:
-            "Falcon Communications and OSSCORP executed multiple CCTV work orders entrusted by Technocrats for ONGC offshore platforms. The assignments involved offshore coordination, technical manpower, surveillance installation and timely commissioning.",
+            "Multiple CCTV work orders across ONGC offshore platforms required careful coordination, specialist technical manpower, surveillance installation and timely commissioning. Falcon Communications and OSSCORP delivered the assignments through Technocrats.",
         metrics: [
             { value: "ONGC", label: "End client" },
             { value: "Multiple", label: "Offshore work orders" },
@@ -231,7 +231,7 @@ const caseStudies = [
         client: "Project partner: Naviya Tech",
         scope: "Supply, installation and commissioning",
         summary:
-            "OSSCORP executed a 2 MW solar power system on a 25-metre-wide canal-top structure at Sikkidri village. The project required field coordination in a rural and tribal location with significant logistical and local security challenges.",
+            "At Sikkidri village, OSSCORP installed a 2 MW solar power system on a 25-metre-wide canal-top structure. Delivery called for field coordination in a rural and tribal location with significant logistical and local security challenges.",
         metrics: [
             { value: "2 MW", label: "Solar capacity" },
             { value: "25 m", label: "Canal structure width" },
@@ -583,7 +583,7 @@ export default function Home() {
                         ["Our expertise", "expertise"],
                         ["Our clients", "clients"],
                         ["Leadership", "leadership"],
-                        ["Case studies", "case-studies"],
+                        ["Featured Projects", "case-studies"],
                         ["Let’s talk", "contact"],
                     ].map(([label, id]) => (
                         <a
@@ -1184,14 +1184,14 @@ export default function Home() {
                 <section className="case-studies section" id="case-studies">
                     <div className="section-top">
                         <div className="case-studies-intro">
-                            <div className="eyebrow">05 — PROVEN IMPACT &amp; CASE STUDIES</div>
+                            <div className="eyebrow">05 — FEATURED PROJECTS</div>
                             <h2>
                                 Field records that speak
                                 <br />
                                 for themselves.
                             </h2>
                             <p>
-                                From early offshore communications to renewable energy and security infrastructure, these projects trace the experience behind OSSCORP’s technical services.
+                                A selection of communications, security and energy projects delivered across onshore and offshore environments.
                             </p>
                         </div>
                         <div className="case-studies-meta">
