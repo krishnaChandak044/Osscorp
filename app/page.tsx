@@ -666,10 +666,10 @@ export default function Home() {
                     </div>
                     <div
                         className="completion-badge"
-                        aria-label="97 percent project completion rate"
+                        aria-label="99 percent project completion rate"
                     >
                         <strong>
-                            97<span>%</span>
+                            99<span>%</span>
                         </strong>
                         <div>
                             <span>PROJECT COMPLETION</span>
@@ -703,7 +703,7 @@ export default function Home() {
                 <section className="stats" aria-label="Osscorp in numbers">
                     {[
                         [30, "+", "Years of experience"],
-                        [97, "%", "Project completion"],
+                        [99, "%", "Project completion"],
                         [100, "+", "Expert employees"],
                         [25, "+", "Years with ONGC"],
                     ].map(([value, suffix, label]) => (
@@ -1069,7 +1069,7 @@ export default function Home() {
                                     <div className="record-metric-sep" />
                                     <div className="record-metric-item">
                                         <div className="metric-val">
-                                            97<span>%</span>
+                                            99<span>%</span>
                                         </div>
                                         <div className="metric-lbl">COMPLETION</div>
                                     </div>
@@ -1271,9 +1271,9 @@ export default function Home() {
                                 <span>PHONE</span>
                                 <strong>+91 9892135332</strong>
                             </a>
-                            <a href="mailto:osscorp21@gmail.com">
+                            <a href="mailto:info@osscorp.in">
                                 <span>EMAIL</span>
-                                <strong>osscorp21@gmail.com</strong>
+                                <strong>info@osscorp.in</strong>
                             </a>
                             <div>
                                 <span>COMPANY</span>

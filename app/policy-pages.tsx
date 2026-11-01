@@ -25,7 +25,7 @@ const policies = {
             },
             {
                 title: "Your choices and questions",
-                content: "You may contact us to ask about, correct or request deletion of information you have sent, subject to applicable record-keeping requirements. For privacy questions, email osscorp21@gmail.com or call +91 9892135332.",
+                content: "You may contact us to ask about, correct or request deletion of information you have sent, subject to applicable record-keeping requirements. For privacy questions, email info@osscorp.in or call +91 9892135332.",
             },
             {
                 title: "Updates to this policy",
@@ -55,7 +55,7 @@ const policies = {
             },
             {
                 title: "Contact",
-                content: "For clarification about any information on this website, contact OSSCORP at osscorp21@gmail.com or +91 9892135332.",
+                content: "For clarification about any information on this website, contact OSSCORP at info@osscorp.in or +91 9892135332.",
             },
         ],
     },
